@@ -127,11 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="SDLL.cpp" />
+    <ClCompile Include="CDLL_main.cpp" />
+    <ClCompile Include="CDLL.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SDLL.h" />
+    <ClInclude Include="CDLL.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

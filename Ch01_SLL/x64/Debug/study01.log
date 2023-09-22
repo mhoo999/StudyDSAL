@@ -1,4 +1,5 @@
-﻿  Ch01-1_LinkedList.cpp
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (study01.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  LL.cpp
   main.cpp
   Generating Code...
-  study01.vcxproj -> C:\Users\user\Cpp_PL\study01\study01\x64\Debug\study01.exe
+  study01.vcxproj -> C:\Users\user\StudyDSAL\x64\Debug\Ch01_SLL.exe

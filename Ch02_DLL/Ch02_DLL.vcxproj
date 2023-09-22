@@ -129,7 +129,7 @@
   <ItemGroup>
     <ClCompile Include="DLL.cpp" />
     <ClCompile Include="DLL.h" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="DLL_main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
