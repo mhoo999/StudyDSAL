@@ -1,16 +1,16 @@
 #include "AS.h"
 
-void AS_CreateStack(ArrayStack** Stack, int Capacity)
+void AS_CreateStack(ArrayStack*& Stack, int Capacity)
 {
 	// 스택을 자유 저장소에 생성
-	(*Stack) = new ArrayStack;
+	Stack = new ArrayStack;
 
 	// 입력된 Capacity만큼의 노드를 자유 저장소에 생성
-	(*Stack)->Nodes = new Node[Capacity];
+	Stack->Nodes = new Node[Capacity];
 	
 	// Capacity 및 Top 초기화
-	(*Stack)->Capacity = Capacity;
-	(*Stack)->Top = -1;
+	Stack->Capacity = Capacity;
+	Stack->Top = -1;
 }
 
 void AS_DestroyStack(ArrayStack* Stack)
@@ -30,8 +30,8 @@ void AS_Push(ArrayStack* Stack, ElementType Data)
 
 ElementType AS_Pop(ArrayStack* Stack)
 {
-	int Position = Stack->Top--;
-	return Stack->Nodes[Position].Data;
+	//int Position = Stack->Top--;
+	return Stack->Nodes[Stack->Top--].Data;
 }
 
 ElementType AS_Top(ArrayStack* Stack)

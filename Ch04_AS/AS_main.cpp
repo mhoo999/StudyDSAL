@@ -4,9 +4,9 @@ using namespace std;
 int main()
 {
 	int i = 0;
-	ArrayStack* Stack = NULL;
+	ArrayStack* Stack;
 
-	AS_CreateStack(&Stack, 10);
+	AS_CreateStack(Stack, 10);
 
 	AS_Push(Stack, 3);
 	AS_Push(Stack, 37);
