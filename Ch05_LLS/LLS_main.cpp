@@ -1,30 +1,47 @@
 #include "LLS.h"
 
-void LLS_CreateStack(LinkedListStack*& Stack)
-{
-	// 스택을 자유 저장소에 생성
-	Stack = new LinkedListStack;
+using namespace std;
 
-	Stack->List = nullptr;
-	Stack->Top = nullptr;
-}
-
-void LLS_DestroyStack(LinkedListStack* Stack)
+int main(void)
 {
-	while (!LLS_IsEmpty(Stack))
+	int i = 0;
+	int Count = 0;
+	Node* Popped;
+
+	LinkedListStack* Stack;
+
+	LLS_CreateStack(Stack);
+
+	LLS_Push(Stack, LLS_CreateNode("abc"));
+	LLS_Push(Stack, LLS_CreateNode("def"));
+	LLS_Push(Stack, LLS_CreateNode("efg"));
+	LLS_Push(Stack, LLS_CreateNode("hij"));
+
+	Count = LLS_GetSize(Stack);
+	cout << "Size : " << Count << ", Top : " << LLS_Top(Stack)->Data << endl;
+
+	for (int i = 0; i < Count; ++i)
 	{
-		Node* Popped = LLS_Pop(Stack));
+		if (LLS_IsEmpty(Stack))
+			break;
+
+		Popped = LLS_Pop(Stack);
+
+		cout << "Popped : " << Popped->Data << endl;
+
 		LLS_DestroyNode(Popped);
+
+		if (!LLS_IsEmpty(Stack))
+		{
+			cout << "Current Top : " << LLS_Top(Stack)->Data << endl;
+		}
+		else
+		{
+			cout << "Stack is empty\n";
+		}
 	}
 
-	// 스택을 자유 저장소에서 해제
-	delete(Stack);
-}
+	LLS_DestroyStack(Stack);
 
-Node* LLS_CreateNode(char* NewData)
-{
-	Node* NewNode = new Node;
-	NewNode->Data = new NewData + 1;
-
-	strcpy()
+	return 0;
 }
