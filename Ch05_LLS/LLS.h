@@ -1,5 +1,4 @@
 #pragma once
-#include <iostream>
 
 class Node
 {
@@ -11,8 +10,8 @@ public:
 class LinkedListStack
 {
 public:
-	Node* List;
 	Node* Top;
+	Node* List;
 };
 
 void LLS_CreateStack(LinkedListStack*& Stack);
@@ -26,4 +25,4 @@ Node* LLS_Pop(LinkedListStack* Stack);
 
 Node* LLS_Top(LinkedListStack* Stack);
 int LLS_GetSize(LinkedListStack* Stack);
-int LLS_IsEmpty(LinkedListStack* Stack);
+bool LLS_IsEmpty(LinkedListStack* Stack);

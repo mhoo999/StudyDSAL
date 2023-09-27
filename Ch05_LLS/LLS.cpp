@@ -1,9 +1,11 @@
 #include "LLS.h"
+#include <string>
 
 void LLS_CreateStack(LinkedListStack*& Stack)
 {
 	// 스택을 자유 저장소에 생성
 	Stack = new LinkedListStack;
+
 	Stack->List = nullptr;
 	Stack->Top = nullptr;
 }
@@ -17,7 +19,7 @@ void LLS_DestroyStack(LinkedListStack* Stack)
 	}
 
 	// 스택을 자유 저장소에서 해제
-	delete(Stack);
+	delete[] Stack;
 }
 
 Node* LLS_CreateNode(const char* NewData)
@@ -34,8 +36,8 @@ Node* LLS_CreateNode(const char* NewData)
 
 void LLS_DestroyNode(Node* _Node)
 {
-	delete(_Node->Data);
-	delete(_Node);
+	delete[] _Node->Data;
+	delete[] _Node;
 }
 
 void LLS_Push(LinkedListStack* Stack, Node* NewNode)
@@ -75,7 +77,7 @@ Node* LLS_Pop(LinkedListStack* Stack)
 
 		// CurrentTop을 Top에 저장
 		Stack->Top = CurrentTop;
-		Stack->Top->NextNode = nullptr;
+		CurrentTop->NextNode = nullptr;
 	}
 
 	return TopNode;
@@ -91,7 +93,7 @@ int LLS_GetSize(LinkedListStack* Stack)
 	int Count = 0;
 	Node* Current = Stack->List;
 
-	while (Current != NULL)
+	while (Current != nullptr)
 	{
 		Current = Current->NextNode;
 		Count++;
@@ -100,7 +102,7 @@ int LLS_GetSize(LinkedListStack* Stack)
 	return Count;
 }
 
-int LLS_IsEmpty(LinkedListStack* Stack)
+bool LLS_IsEmpty(LinkedListStack* Stack)
 {
 	return (Stack->List == nullptr);
 }

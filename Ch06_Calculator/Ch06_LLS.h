@@ -1,24 +1,40 @@
 #pragma once
 #include <iostream>
+#include <cstdlib>
+#include <cstring>
+#include <string>
+using namespace std;
 
 class Node
 {
 public:
-	char* Data;
-	Node* NextNode;
+    string Data;
+    //char* Data;
+    Node* NextNode = nullptr;  // Member initialization in C++11
+    ~Node() {
+        //delete[] Data;
+    }
 };
 
 class LinkedListStack
 {
 public:
-	Node* List;
-	Node* Top;
+    Node* List = nullptr;  // Member initialization in C++11
+    Node* Top = nullptr;   // Member initialization in C++11
+    ~LinkedListStack() {
+        Node* currentNode = List;
+        while (currentNode) {
+            Node* nextNode = currentNode->NextNode;
+            delete currentNode;
+            currentNode = nextNode;
+        }
+    }
 };
 
-void LLS_CreateStack(LinkedListStack*& Stack);
+void LLS_CreateStack(LinkedListStack** Stack);
 void LLS_DestroyStack(LinkedListStack* Stack);
 
-Node* LLS_CreateNode(const char* Data);
+Node* LLS_CreateNode(string Data);
 void LLS_DestroyNode(Node* _Node);
 
 void LLS_Push(LinkedListStack* Stack, Node* NewNode);

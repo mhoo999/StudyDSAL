@@ -1,0 +1,4 @@
+﻿  Calculator.cpp
+C:\Users\user\StudyDSAL\Ch06_Calculator\Calculator.cpp(107,22): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\user\StudyDSAL\Ch06_Calculator\Calculator.cpp(176,22): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+  Ch06_Calculator.vcxproj -> C:\Users\user\StudyDSAL\x64\Debug\Ch06_Calculator.exe
