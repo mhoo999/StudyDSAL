@@ -1,0 +1,3 @@
+﻿  ExpressionTree.cpp
+C:\Users\mhoo9\Documents\GitHub\StudyDSAL\Ch10_BT\ExpressionTree.cpp(64,10): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Ch10_BT.vcxproj -> C:\Users\mhoo9\Documents\GitHub\StudyDSAL\x64\Debug\Ch10_ExpressionTree.exe

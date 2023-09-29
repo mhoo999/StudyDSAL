@@ -24,7 +24,7 @@
     <ProjectGuid>{e1a22db3-6b32-4fb6-926c-c6b9fbd6f533}</ProjectGuid>
     <RootNamespace>Ch10BT</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>Ch10_Exp</ProjectName>
+    <ProjectName>Ch10_ExpressionTree</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -128,6 +128,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ExpressionTree.cpp" />
+    <ClCompile Include="Test_ExpressionTree.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ExpressionTree.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
