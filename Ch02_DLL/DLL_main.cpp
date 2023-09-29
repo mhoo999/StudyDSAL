@@ -14,7 +14,7 @@ int main()
 	for (int i = 0; i < 5; ++i)
 	{
 		NewNode = DLL_CreateNode(i);
-		DLL_AppendNode(&List, NewNode);
+		DLL_AppendNode(List, NewNode);
 	}
 
 	// 리스트 출력
@@ -51,7 +51,7 @@ int main()
 
 		if (Current != nullptr)
 		{
-			DLL_RemoveNode(&List, Current);
+			DLL_RemoveNode(List, Current);
 			DLL_DestroyNode(Current);
 		}
 	}

@@ -6,8 +6,8 @@ Node* CDLL_CreateNode(ElementType NewData)
 	Node* NewNode = new Node;
 
 	NewNode->Data = NewData;
-	NewNode->PrevNode = NULL;
-	NewNode->NextNode = NULL;
+	NewNode->PrevNode = nullptr;
+	NewNode->NextNode = nullptr;
 
 	return NewNode;
 }
@@ -19,25 +19,25 @@ void CDLL_DestroyNode(Node* Node)
 }
 
 // 노드 추가
-void CDLL_AppendNode(Node** Head, Node* NewNode)
+void CDLL_AppendNode(Node*& Head, Node* NewNode)
 {
 	// 헤드가 NULL이면 새로운 노드가 Head가 된다
-	if ((*Head) == NULL)
+	if (Head == nullptr)
 	{
-		*Head = NewNode;
-		(*Head)->PrevNode = *Head;
-		(*Head)->NextNode = *Head;
+		Head = NewNode;
+		Head->PrevNode = Head;
+		Head->NextNode = Head;
 	}
 	else
 	{
 		// 테일과 헤드 사이에 NewNode를 삽입한다
-		Node* Tail = (*Head)->PrevNode;
+		Node* Tail = Head->PrevNode;
 
 		NewNode->PrevNode = Tail;
-		NewNode->NextNode = *Head;
+		NewNode->NextNode = Head;
 
 		
-		(*Head)->PrevNode = NewNode;
+		Head->PrevNode = NewNode;
 		//Tail->NextNode->PrevNode = NewNode;
 		Tail->NextNode = NewNode;
 
@@ -52,7 +52,7 @@ void CDLL_InsertAfter(Node* Current, Node* NewNode)
 	NewNode->NextNode = Current->NextNode;
 	NewNode->PrevNode = Current;
 
-	if (Current->NextNode != NULL)
+	if (Current->NextNode != nullptr)
 	{
 		Current->NextNode->PrevNode = NewNode;
 	}
@@ -61,25 +61,25 @@ void CDLL_InsertAfter(Node* Current, Node* NewNode)
 
 
 // 노드 제거
-void CDLL_RemoveNode(Node** Head, Node* Remove)
+void CDLL_RemoveNode(Node*& Head, Node* Remove)
 {
-	if ((*Head) == Remove)
+	if (Head == Remove)
 	{
-		(*Head)->PrevNode->NextNode = Remove->NextNode;
-		(*Head)->NextNode->PrevNode = Remove->PrevNode;
+		Head->PrevNode->NextNode = Remove->NextNode;
+		Head->NextNode->PrevNode = Remove->PrevNode;
 
-		*Head = Remove->NextNode;
+		Head = Remove->NextNode;
 
-		Remove->NextNode = NULL;
-		Remove->PrevNode = NULL;
+		Remove->NextNode = nullptr;
+		Remove->PrevNode = nullptr;
 	}
 	else
 	{
 		Remove->PrevNode->NextNode = Remove->NextNode;
 		Remove->NextNode->PrevNode = Remove->PrevNode;
 
-		Remove->NextNode = NULL;
-		Remove->PrevNode = NULL;
+		Remove->NextNode = nullptr;
+		Remove->PrevNode = nullptr;
 	}
 }
 
@@ -88,7 +88,7 @@ Node* CDLL_GetNodeAt(Node* Head, int Location)
 {
 	Node* Current = Head;
 
-	while (Current != NULL && (--Location) >= 0)
+	while (Current != nullptr && (--Location) >= 0)
 	{
 		Current = Current->NextNode;
 	}
@@ -102,7 +102,7 @@ int CDLL_GetNodeCount(Node* Head)
 	int Count = 0;
 	Node* Current = Head;
 
-	while (Current != NULL)
+	while (Current != nullptr)
 	{
 		Current = Current->NextNode;
 		Count++;

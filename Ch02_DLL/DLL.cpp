@@ -17,22 +17,22 @@ Node* DLL_CreateNode(ElementType NewData)
 // 노드 소멸
 void DLL_DestroyNode(Node* Node)
 {
-	delete(Node);
+	delete Node;
 }
 
 
 // 노드 추가
-void DLL_AppendNode(Node** Head, Node* NewNode)
+void DLL_AppendNode(Node*& Head, Node* NewNode)
 {
 	// 헤드 노드가 NULL이라면 새로운 노드가 Head가 된다
-	if ((*Head) == nullptr)
+	if (Head == nullptr)
 	{
-		*Head = NewNode;
+		Head = NewNode;
 	}
 	else
 	{
 		// 테일을 찾아 NewNode를 연결한다
-		Node* Tail = (*Head);
+		Node* Tail = Head;
 		while (Tail->NextNode != nullptr)
 		{
 			Tail = Tail->NextNode;
@@ -58,13 +58,13 @@ void DLL_InsertAfter(Node* Current, Node* NewNode)
 }
 
 // 노드 제거
-void DLL_RemoveNode(Node** Head, Node* Remove)
+void DLL_RemoveNode(Node*& Head, Node* Remove)
 {
-	if (*Head == Remove)
+	if (Head == Remove)
 	{
-		*Head = Remove->NextNode;
-		if ((*Head) != nullptr)
-			(*Head)->PrevNode = nullptr;
+		Head = Remove->NextNode;
+		if (Head != nullptr)
+			Head->PrevNode = nullptr;
 
 		Remove->PrevNode = nullptr;
 		Remove->NextNode = nullptr;
@@ -102,7 +102,7 @@ int DLL_GetNodeCount(Node* Head)
 	int Count = 0;
 	Node* Current = Head;
 
-	while (Current != NULL)
+	while (Current != nullptr)
 	{
 		Current = Current->NextNode;
 		Count++;

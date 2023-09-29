@@ -6,15 +6,15 @@ int main()
 {
 	int i			= 0;
 	int Count		= 0;
-	Node* List		= NULL;
-	Node* NewNode	= NULL;
-	Node* Current	= NULL;
+	Node* List		= nullptr;
+	Node* NewNode	= nullptr;
+	Node* Current	= nullptr;
 
 	// 노드 5개 추가
 	for (int i = 0; i < 5; ++i)
 	{
 		NewNode = CDLL_CreateNode(i);
-		CDLL_AppendNode(&List, NewNode);
+		CDLL_AppendNode(List, NewNode);
 	}
 
 	// 리스트 출력
@@ -33,7 +33,7 @@ int main()
 
 	cout << "Removing Node at 2...\n";
 	Current = CDLL_GetNodeAt(List, 2);
-	CDLL_RemoveNode(&List, Current);
+	CDLL_RemoveNode(List, Current);
 	CDLL_DestroyNode(Current);
 
 	// 리스트 출력
@@ -59,7 +59,7 @@ int main()
 
 		if (Current != NULL)
 		{
-			CDLL_RemoveNode(&List, Current);
+			CDLL_RemoveNode(List, Current);
 			CDLL_DestroyNode(Current);
 		}
 	}
