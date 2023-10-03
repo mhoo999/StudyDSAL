@@ -96,34 +96,34 @@ void RBT_InsertNodeHelper(RBTNode*& Tree, RBTNode* NewNode)
 
 void RBT_RebuildAfterInsert(RBTNode*& Root, RBTNode* X)
 {
-	while (X != Root && X->Parent->color == Color::RED)
+	while (X != Root && X->Parent->color == Color::RED) // X가 Root가 아니고 X의 Parent의 Color가 RED일 경우
 	{
-		if (X->Parent == X->Parent->Parent->Left)
+		if (X->Parent == X->Parent->Parent->Left) // X의 Parent가 할아버지 노드의 Left 자식일 경우
 		{
-			RBTNode* Uncle = X->Parent->Parent->Right;
-			if (Uncle->color == Color::RED)
+			RBTNode* Uncle = X->Parent->Parent->Right; // 삼촌 노드 정의
+			if (Uncle->color == Color::RED) // 삼촌 노드도 RED일 경우(Parent, Uncle == RED)
 			{
-				X->Parent->color = Color::BLACK;
-				Uncle->color = Color::BLACK;
-				X->Parent->Parent->color = Color::RED;
+				X->Parent->color = Color::BLACK;  // X의 부모를 BLACK
+				Uncle->color = Color::BLACK; // 삼촌을 BLACK
+				X->Parent->Parent->color = Color::RED; // 할아버지를 RED
 
-				X = X->Parent->Parent;
+				X = X->Parent->Parent; // X = 할아버지 노드
 			}
-			else
+			else // 삼촌 노드가 BLACK일 경우
 			{
-				if (X == X->Parent->Right)
+				if (X == X->Parent->Right) // X가 부모의 Right 노드일 경우
 				{
-					X = X->Parent;
-					RBT_RotateLeft(Root, X);
+					X = X->Parent; // X = 부모 노드
+					RBT_RotateLeft(Root, X); // 부모 노드를 중심으로 좌회전
 				}
 
-				X->Parent->color = Color::BLACK;
-				X->Parent->Parent->color = Color::RED;
+				X->Parent->color = Color::BLACK; // X의 컬러 BLACK
+				X->Parent->Parent->color = Color::RED; // X 할아버지 컬러 RED
 
-				RBT_RotateRight(Root, X->Parent->Parent);
+				RBT_RotateRight(Root, X->Parent->Parent); // X 할아버지 중심으로 우회전
 			}
 		}
-		else
+		else // X의 Parent가 할아버지 노드의 Right 자식일 경우(위 케이스와 Left<->Right 교체 진행)
 		{
 			RBTNode* Uncle = X->Parent->Parent->Left;
 			if (Uncle->color == Color::RED)
@@ -154,12 +154,12 @@ void RBT_RebuildAfterInsert(RBTNode*& Root, RBTNode* X)
 
 void RBT_RotateRight(RBTNode*& Root, RBTNode* Parent)
 {
-	RBTNode* LeftChild = Parent->Left;
+	RBTNode* LeftChild = Parent->Left; // Left Child 노드를 Parent->Left 값으로 초기화
 
 	Parent->Left = LeftChild->Right;
 
 	if (LeftChild->Right != Nil)
-		LeftChild->Right->Parent = Parent;
+		LeftChild->Right->Parent = Parent; // 
 
 	LeftChild->Parent = Parent->Parent;
 
