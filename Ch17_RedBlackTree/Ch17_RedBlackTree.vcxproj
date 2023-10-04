@@ -24,6 +24,7 @@
     <ProjectGuid>{e06f9f6c-29e2-4ad8-802d-8923892211ac}</ProjectGuid>
     <RootNamespace>Ch17RedBlackTree</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Ch17_RedBlackTree(Hold)</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
