@@ -92,6 +92,8 @@ void RBT_InsertNodeHelper(RBTNode*& Tree, RBTNode* NewNode)
 		else
 			RBT_InsertNodeHelper(Tree->Left, NewNode);
 	}
+	else
+		RBT_InsertNodeHelper(Tree->Left, NewNode);
 }
 
 void RBT_RebuildAfterInsert(RBTNode*& Root, RBTNode* X)
