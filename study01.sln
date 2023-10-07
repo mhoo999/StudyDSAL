@@ -39,6 +39,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ch17_RedBlackTree(Hold)", "
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ch18_Heap", "Ch18_Heap\Ch18_Heap.vcxproj", "{33F3608D-1402-4E99-84F6-42363D8CFA45}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ch19_PriorityQueue", "Ch19_PriorityQueue\Ch19_PriorityQueue.vcxproj", "{FCBD90D6-6504-4617-8205-41ED86C3C356}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -191,6 +193,14 @@ Global
 		{33F3608D-1402-4E99-84F6-42363D8CFA45}.Release|x64.Build.0 = Release|x64
 		{33F3608D-1402-4E99-84F6-42363D8CFA45}.Release|x86.ActiveCfg = Release|Win32
 		{33F3608D-1402-4E99-84F6-42363D8CFA45}.Release|x86.Build.0 = Release|Win32
+		{FCBD90D6-6504-4617-8205-41ED86C3C356}.Debug|x64.ActiveCfg = Debug|x64
+		{FCBD90D6-6504-4617-8205-41ED86C3C356}.Debug|x64.Build.0 = Debug|x64
+		{FCBD90D6-6504-4617-8205-41ED86C3C356}.Debug|x86.ActiveCfg = Debug|Win32
+		{FCBD90D6-6504-4617-8205-41ED86C3C356}.Debug|x86.Build.0 = Debug|Win32
+		{FCBD90D6-6504-4617-8205-41ED86C3C356}.Release|x64.ActiveCfg = Release|x64
+		{FCBD90D6-6504-4617-8205-41ED86C3C356}.Release|x64.Build.0 = Release|x64
+		{FCBD90D6-6504-4617-8205-41ED86C3C356}.Release|x86.ActiveCfg = Release|Win32
+		{FCBD90D6-6504-4617-8205-41ED86C3C356}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
