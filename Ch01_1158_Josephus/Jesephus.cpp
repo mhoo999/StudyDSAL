@@ -52,7 +52,10 @@ void DestroyNode(Node* Node)
 void RemoveNode(Node*& Head, Node* Remove)
 {
 	if (Head == Remove)
+	{
 		Head = Head->NextNode;
+		Head->NextNode = Remove->NextNode;
+	}
 	else
 	{
 		Node* Current = Head;
@@ -93,6 +96,9 @@ Node* GetNodeAt(Node* List, int Location)
 		Current = Current->NextNode;
 	}
 
+	if (Current == List)
+		return Current->NextNode;
+
 	return Current;
 }
 
@@ -113,17 +119,50 @@ int main()
 		AppendNode(List, NewNode);
 	}
 
+	// 첫 번째로 삭제할 요소 선언
 	Node* NextRemove = GetNodeAt(List, K);
 
-	while (!IsEmpty(List))
+	// 첫 번째로 삭제할 요소 cout, 다음 요소 저장.. N번 반복
+	for (int i = 0; i < N; ++i)
 	{
 		cout << NextRemove->Data << " ";
 
 		Node* CurretRemove = NextRemove;
-		NextRemove = GetNodeAt(NextRemove, K);
+		NextRemove = GetNodeAt(NextRemove, K + 1);
+
 		RemoveNode(List, CurretRemove);
+		DestroyNode(CurretRemove);
+
 		//NextRemove = GetNodeAt(List, Current + K);
 	}
+
+	return 0;
+
+	/*
+	2차 시도, while로 하니까 마지막에 계속 쓰레기 값 남음..
+	위 코드로 Visual Studio에서 실행 시, VS가 자동으로 잘 못된 포인터의 값을 잡아주지만(?)
+	백준에서는 마지막에 쓰레기 값을 바라보는 포인터가 있어서 실패하는듯?
+	*/
+
+	//while (!IsEmpty(List))
+	//{
+	//	cout << NextRemove->Data << " ";
+
+	//	Node* CurretRemove = NextRemove;
+
+	//	//if (GetCount(List) != 1)
+	//	NextRemove = GetNodeAt(NextRemove, K + 1);
+
+	//	RemoveNode(List, CurretRemove);
+	//	DestroyNode(CurretRemove);
+
+	//	//NextRemove = GetNodeAt(List, Current + K);
+	//}
+
+	
+	/*
+	1차 시도, vector는 순환이 안 되어서 실패
+	*/
 
 	//vector<int> Josephus;
 
@@ -168,6 +207,4 @@ int main()
 	//		Remove += K;
 	//	}
 	//}
-
-
 }

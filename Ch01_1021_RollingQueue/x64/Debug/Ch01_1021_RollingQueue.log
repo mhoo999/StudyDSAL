@@ -1,0 +1,4 @@
+﻿  RollingQueue.cpp
+C:\Users\mhoo9\Documents\GitHub\StudyDSAL\Ch01_1021_RollingQueue\RollingQueue.cpp(140,16): warning C4551: function call missing argument list
+C:\Users\mhoo9\Documents\GitHub\StudyDSAL\Ch01_1021_RollingQueue\RollingQueue.cpp(150,16): warning C4551: function call missing argument list
+  Ch01_1021_RollingQueue.vcxproj -> C:\Users\mhoo9\Documents\GitHub\StudyDSAL\x64\Debug\Ch01_1021_RollingQueue.exe
