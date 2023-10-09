@@ -88,12 +88,12 @@ public:
 
 	static void MoveLeft(CDLLNode*& Head)
 	{
-		Head = Head->NextNode;
+		Head = Head->PrevNode;
 	}
 
 	static void MoveRight(CDLLNode*& Head)
 	{
-		Head = Head->PrevNode;
+		Head = Head->NextNode;
 	}
 };
 
@@ -137,7 +137,7 @@ int main()
 				int Move = CDLLNode::GetNextCount(Head, Input[i]);
 				for (int j = 0; j < Move; ++j)
 				{
-					CDLLNode::MoveRight;
+					CDLLNode::MoveRight(Head);
 					MinValue++;
 				}
 				CDLLNode::RemoveHead(Head);
@@ -147,7 +147,7 @@ int main()
 				int Move = CDLLNode::GetPrevCount(Head, Input[i]);
 				for (int j = 0; j < Move; ++j)
 				{
-					CDLLNode::MoveLeft;
+					CDLLNode::MoveLeft(Head);
 					MinValue++;
 				}
 				CDLLNode::RemoveHead(Head);
