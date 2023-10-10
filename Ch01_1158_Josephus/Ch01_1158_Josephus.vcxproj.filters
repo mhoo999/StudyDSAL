@@ -15,11 +15,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Jesephus.cpp">
+    <ClCompile Include="Josephus3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Josephus.md" />
+    <None Include="Josephus2.md" />
   </ItemGroup>
 </Project>
