@@ -1,3 +1,3 @@
 ﻿  Josephus3.cpp
-C:\Users\mhoo9\Documents\GitHub\StudyDSAL\Ch01_1158_Josephus\Josephus3.cpp(12,2): warning C4091: 'typedef ': ignored on left of 'Node' when no variable is declared
-  Ch01_1158_Josephus.vcxproj -> C:\Users\mhoo9\Documents\GitHub\StudyDSAL\x64\Debug\Ch01_1158_Josephus.exe
+C:\Users\user\Documents\GitHub\StudyDSAL\Ch01_1158_Josephus\Josephus3.cpp(12,2): warning C4091: 'typedef ': ignored on left of 'Node' when no variable is declared
+  Ch01_1158_Josephus.vcxproj -> C:\Users\user\Documents\GitHub\StudyDSAL\x64\Debug\Ch01_1158_Josephus.exe

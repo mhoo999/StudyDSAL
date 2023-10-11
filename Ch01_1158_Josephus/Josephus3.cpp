@@ -28,9 +28,6 @@ public:
 
 	Node* CLLCreateNode(int NewData)
 	{
-		if (NewData == NULL)
-			return;
-
 		return new Node(NewData);
 	}
 
@@ -47,12 +44,13 @@ public:
 		if (Head == nullptr)
 		{
 			Head = NewNode;
-			Head->PrevNode = NewNode;
-			Head->NextNode = NewNode;
-
 			Tail = NewNode;
-			Tail->PrevNode = NewNode;
-			Tail->NextNode = NewNode;
+
+			Head->PrevNode = Tail;
+			Head->NextNode = Tail;
+
+			Tail->PrevNode = Head;
+			Tail->NextNode = Head;
 		}
 		else
 		{
@@ -61,6 +59,8 @@ public:
 
 			Head->PrevNode = NewNode;
 			Tail->NextNode = NewNode;
+
+			Tail = NewNode;
 		}
 
 		Count++;
@@ -77,12 +77,10 @@ public:
 		}
 	}
 
-	void CLLPrintRemove(Node* Remove)
+	void CLLRemoveNode(Node* Remove)
 	{
 		if (Remove == nullptr)
 			return;
-
-		cout << Remove->Data;
 
 		if (Head == Remove)
 		{
@@ -99,6 +97,9 @@ public:
 			}
 			Current->NextNode = Remove->NextNode;
 			Current->NextNode->PrevNode = Remove->PrevNode;
+
+			if (Tail == Remove)
+				Tail = Remove->PrevNode;
 		}
 
 		Remove->PrevNode = nullptr;
@@ -107,11 +108,30 @@ public:
 		Count--;
 	}
 
-	Node* CLLGetNextTarget(int TargetNumber)
+	Node* CLLGetNextTarget(Node*& Target, int TargetNumber)
 	{
 		Node* NextTarget = nullptr;
 
+		if (Target == nullptr)
+		{
+			Target = Head;
+		}
+		
+		NextTarget = Target;
+		while ((--TargetNumber) > 0)
+		{
+			NextTarget = NextTarget->NextNode;
+		}
+
 		return NextTarget;
+	}
+
+	void CLLPrintNode(Node* Target)
+	{
+		cout << Target->Data;
+
+		if (Count > 1)
+			cout << ", ";
 	}
 
 	int CLLCount()
@@ -128,16 +148,32 @@ public:
 int main()
 {
 	CLL* List = new CLL;
+	Node* Target = nullptr;
+	Node* NextTarget = nullptr;
 
 	int N, K;
 	cin >> N >> K;
 
 	List->CLLCreateList(N);
 
+	NextTarget = List->CLLGetNextTarget(Target, K);
+
+	cout << "<";
 	while (!List->CLLIsEmpty())
 	{
+		// 회차별 Target 리타겟팅
+		Target = NextTarget;
 
+		// Target 출력
+		List->CLLPrintNode(Target);
+		
+		// NextTarget 저장
+		NextTarget = List->CLLGetNextTarget(Target, K);
+
+		// Target 삭제
+		List->CLLRemoveNode(Target);
 	}
+	cout << ">";
 
 	return 0;
 }
