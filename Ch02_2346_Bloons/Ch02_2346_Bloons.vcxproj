@@ -127,7 +127,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Bloons.cpp" />
+    <ClCompile Include="Bloons.md" />
+    <ClCompile Include="Bloons2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Bloons1t.md" />
