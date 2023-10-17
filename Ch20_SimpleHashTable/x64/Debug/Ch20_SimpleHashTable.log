@@ -1,0 +1,3 @@
+﻿  Test_SimpleHashTable.cpp
+C:\Users\user\Documents\GitHub\StudyDSAL\Ch20_SimpleHashTable\SimpleHashTable.h(13,2): warning C4091: 'typedef ': ignored on left of 'Node' when no variable is declared
+  Ch20_SimpleHashTable.vcxproj -> C:\Users\user\Documents\GitHub\StudyDSAL\x64\Debug\Ch20_SimpleHashTable.exe
