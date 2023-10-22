@@ -1,0 +1,3 @@
+﻿  Stack2.cpp
+C:\Users\mhoo9\Documents\GitHub\StudyDSAL\Ch05_Stack2\Stack2.cpp(12,2): warning C4091: 'typedef ': ignored on left of 'Node' when no variable is declared
+  Ch05_Stack2.vcxproj -> C:\Users\mhoo9\Documents\GitHub\StudyDSAL\x64\Debug\Ch05_Stack2.exe
