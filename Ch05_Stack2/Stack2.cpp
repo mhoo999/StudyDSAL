@@ -3,7 +3,7 @@
 
 using namespace std;
 
-typedef struct Node
+struct Node
 {
 	int Data;
 	Node* NextNode;
@@ -15,13 +15,12 @@ class Stack
 {
 public:
 	Node* Top;
-	Node* List;
 	int Count;
 
-	Stack() : Top(nullptr), List(nullptr), Count(0) {}
+	Stack() : Top(nullptr), Count(0) {}
 	~Stack()
 	{
-		while(List != nullptr)
+		while(Top != nullptr)
 		{
 			Node* DeleteTarget = Top;
 			Top = Top->NextNode;
@@ -35,10 +34,9 @@ public:
 	{
 		Node* NewNode = new Node(X);
 
-		if (IsEmpty() == true)
+		if (IsEmpty())
 		{
 			Top = NewNode;
-			List = NewNode;
 		}
 		else
 		{
@@ -52,9 +50,7 @@ public:
 	// 2: 스택에 정수가 있다면 맨 위의 정수를 빼고 출력한다. 없다면 -1을 대신 출력한다.
 	void PrintPop()
 	{
-		if (IsEmpty() == true)
-			cout << "-1" << '\n';
-		else
+		if (!IsEmpty())
 		{
 			cout << Top->Data << '\n';
 
@@ -64,6 +60,8 @@ public:
 
 			Count--;
 		}
+		else
+			cout << "-1" << '\n';
 	}
 
 	// 3: 스택에 들어있는 정수의 개수를 출력한다.
@@ -81,10 +79,10 @@ public:
 	// 5: 스택에 정수가 있다면 맨 위의 정수를 출력한다. 없다면 -1을 대신 출력한다.
 	void PrintTop()
 	{
-		if (IsEmpty() == true)
-			cout << "-1" << '\n';
-		else
+		if (!IsEmpty())
 			cout << Top->Data << '\n';
+		else
+			cout << "-1" << '\n';
 	}
 };
 
@@ -116,6 +114,8 @@ int main()
 		else
 			NewStack->PrintTop();
 	}
+
+	delete NewStack;
 
 	return 0;
 }
