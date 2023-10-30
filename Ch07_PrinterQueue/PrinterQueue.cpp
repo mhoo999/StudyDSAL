@@ -19,14 +19,21 @@ public:
 	int Count;
 
 	Queue() : Front(nullptr), Rear(nullptr), Count(0) {}
-	~Queue()
+
+	void Print()
 	{
-		while (!IsEmpty())
+		cout << "Print : \n";
+		Node* Current = Front;
+		while (Current != nullptr)
 		{
-			Node* RemoveTarget = Front;
-			Front = Front->NextNode;
-			delete RemoveTarget;
+			cout << Current->Data << " : " << Current->Priority << '\n';
+			Current = Current->NextNode;
 		}
+	}
+
+	Node* GetFront()
+	{
+		return Front;
 	}
 
 	bool IsEmpty()
@@ -75,6 +82,8 @@ public:
 			Front = Front->NextNode;
 		}
 
+		RemoveNode->NextNode = nullptr;
+
 		Count--;
 		return RemoveNode;
 	}
@@ -82,33 +91,30 @@ public:
 	bool Comparison()
 	{
 		int BiggerThen = 0;
-		Node* Interator = Front;
+		Node* Iterator = Front;
 
-		while (Interator != nullptr)
+		while (Iterator != nullptr)
 		{
-			if (Interator->Priority > Front->Priority)
-				BiggerThen++;
+			if (Iterator->Priority > Front->Priority)
+				return false;
 
-			Interator = Interator->NextNode;
+			Iterator = Iterator->NextNode;
 		}
 
-		if (BiggerThen == 0)
-			return true;
-		else
-			return false;
+		return true;
 	}
 
 	bool AliveTarget(int TargetNum)
 	{
 		int ThereIs = 0;
-		Node* Interator = Front;
+		Node* Iterator = Front;
 
-		while (Interator != nullptr)
+		while (Iterator != nullptr)
 		{
-			if (Interator->Data == TargetNum)
+			if (Iterator->Data == TargetNum)
 				ThereIs++;
 
-			Interator = Interator->NextNode;
+			Iterator = Iterator->NextNode;
 		}
 
 		if (ThereIs == 0)
@@ -123,10 +129,14 @@ int main()
 	int N;
 	cin >> N;
 
-	Queue* NewQueue = new Queue;
+	// Dequeue를 진행하는데, 뒤에 Priority가 더 높은 노드가 있다면 Dequeue하여 Enqueue
+	// 아니면 Dequeue
+	// 특정 문서가 몇번째에 Dequeue 되는 지 알아내기
 
 	for (int i = 0; i < N; ++i)
 	{
+		Queue* NewQueue = new Queue;
+
 		int Size, TargetNum;
 		cin >> Size >> TargetNum;
 
@@ -137,37 +147,49 @@ int main()
 			NewQueue->Enqueue(j, NewPriority);
 		}
 
-		//Node* TargetNode = NewQueue->Front;
+		int DequeueCount = 1;
 
-		//for (int j = 0; j < TargetNum; ++j)
-		//{
-		//	TargetNode = TargetNode->NextNode;
-		//}
-
-		// Node* Comparison = NewQueue->Front;
-		int DequeueCount = 0;
-
-		while (NewQueue->AliveTarget(TargetNum))
+		while (!NewQueue->IsEmpty())
 		{
 			if (NewQueue->Comparison())
 			{
-				NewQueue->Dequeue();
+				if (NewQueue->GetFront()->Data == TargetNum)
+				{
+					cout << DequeueCount << '\n';
+					break;
+				}
+				else
+				{
+					DequeueCount++;
+					NewQueue->Dequeue();
+				}
 			}
 			else
 			{
 				NewQueue->Enqueue2(NewQueue->Dequeue());
 			}
+		}
 
-			DequeueCount++;
+		delete NewQueue;
+
+		/*while (!NewQueue->IsEmpty())
+		{
+			if (NewQueue->Comparison())
+			{
+				DequeueCount++;
+				if (NewQueue->Dequeue()->Data == TargetNum)
+					break;
+			}
+			else
+			{
+				NewQueue->Enqueue2(NewQueue->Dequeue());
+			}
 		}
 
 		cout << DequeueCount;
+
+		delete NewQueue;*/
 	}
-
-	// Dequeue를 진행하는데, 뒤에 Priority가 더 높은 노드가 있다면 Dequeue하여 Enqueue
-	// 아니면 Dequeue
-	// 특정 문서가 몇번째에 Dequeue 되는 지 알아내기
-
 
 	return 0;
 }
