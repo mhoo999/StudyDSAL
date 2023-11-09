@@ -55,6 +55,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ch05_Card2", "Ch06_Card2\Ch
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ch07_PrinterQueue", "Ch07_PrinterQueue\Ch07_PrinterQueue.vcxproj", "{FDF96876-E221-4795-B8CC-B16005CDEC70}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CH09_TreeTraversal", "CH09_TreeTraversal\CH09_TreeTraversal.vcxproj", "{BE140B53-1D89-439F-BD47-A3EE49C008F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -271,6 +273,14 @@ Global
 		{FDF96876-E221-4795-B8CC-B16005CDEC70}.Release|x64.Build.0 = Release|x64
 		{FDF96876-E221-4795-B8CC-B16005CDEC70}.Release|x86.ActiveCfg = Release|Win32
 		{FDF96876-E221-4795-B8CC-B16005CDEC70}.Release|x86.Build.0 = Release|Win32
+		{BE140B53-1D89-439F-BD47-A3EE49C008F7}.Debug|x64.ActiveCfg = Debug|x64
+		{BE140B53-1D89-439F-BD47-A3EE49C008F7}.Debug|x64.Build.0 = Debug|x64
+		{BE140B53-1D89-439F-BD47-A3EE49C008F7}.Debug|x86.ActiveCfg = Debug|Win32
+		{BE140B53-1D89-439F-BD47-A3EE49C008F7}.Debug|x86.Build.0 = Debug|Win32
+		{BE140B53-1D89-439F-BD47-A3EE49C008F7}.Release|x64.ActiveCfg = Release|x64
+		{BE140B53-1D89-439F-BD47-A3EE49C008F7}.Release|x64.Build.0 = Release|x64
+		{BE140B53-1D89-439F-BD47-A3EE49C008F7}.Release|x86.ActiveCfg = Release|Win32
+		{BE140B53-1D89-439F-BD47-A3EE49C008F7}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
