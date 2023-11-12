@@ -57,6 +57,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ch07_PrinterQueue", "Ch07_P
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CH09_TreeTraversal", "CH09_TreeTraversal\CH09_TreeTraversal.vcxproj", "{BE140B53-1D89-439F-BD47-A3EE49C008F7}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ch10_Postorder", "Ch10_Postorder\Ch10_Postorder.vcxproj", "{46715C45-1228-41A3-AD86-6077BB1E8C2D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -281,6 +283,14 @@ Global
 		{BE140B53-1D89-439F-BD47-A3EE49C008F7}.Release|x64.Build.0 = Release|x64
 		{BE140B53-1D89-439F-BD47-A3EE49C008F7}.Release|x86.ActiveCfg = Release|Win32
 		{BE140B53-1D89-439F-BD47-A3EE49C008F7}.Release|x86.Build.0 = Release|Win32
+		{46715C45-1228-41A3-AD86-6077BB1E8C2D}.Debug|x64.ActiveCfg = Debug|x64
+		{46715C45-1228-41A3-AD86-6077BB1E8C2D}.Debug|x64.Build.0 = Debug|x64
+		{46715C45-1228-41A3-AD86-6077BB1E8C2D}.Debug|x86.ActiveCfg = Debug|Win32
+		{46715C45-1228-41A3-AD86-6077BB1E8C2D}.Debug|x86.Build.0 = Debug|Win32
+		{46715C45-1228-41A3-AD86-6077BB1E8C2D}.Release|x64.ActiveCfg = Release|x64
+		{46715C45-1228-41A3-AD86-6077BB1E8C2D}.Release|x64.Build.0 = Release|x64
+		{46715C45-1228-41A3-AD86-6077BB1E8C2D}.Release|x86.ActiveCfg = Release|Win32
+		{46715C45-1228-41A3-AD86-6077BB1E8C2D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
