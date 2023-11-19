@@ -61,6 +61,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ch10_Postorder", "Ch10_Post
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ch12_ATM", "Ch12_ATM\Ch12_ATM.vcxproj", "{5DC3518A-0BEB-4CF1-A4B7-687D7026EB73}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ch13_FindPosition", "Ch13_FindPosition\Ch13_FindPosition.vcxproj", "{CC9641FF-A93D-462E-B356-110645D5DD91}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -301,6 +303,14 @@ Global
 		{5DC3518A-0BEB-4CF1-A4B7-687D7026EB73}.Release|x64.Build.0 = Release|x64
 		{5DC3518A-0BEB-4CF1-A4B7-687D7026EB73}.Release|x86.ActiveCfg = Release|Win32
 		{5DC3518A-0BEB-4CF1-A4B7-687D7026EB73}.Release|x86.Build.0 = Release|Win32
+		{CC9641FF-A93D-462E-B356-110645D5DD91}.Debug|x64.ActiveCfg = Debug|x64
+		{CC9641FF-A93D-462E-B356-110645D5DD91}.Debug|x64.Build.0 = Debug|x64
+		{CC9641FF-A93D-462E-B356-110645D5DD91}.Debug|x86.ActiveCfg = Debug|Win32
+		{CC9641FF-A93D-462E-B356-110645D5DD91}.Debug|x86.Build.0 = Debug|Win32
+		{CC9641FF-A93D-462E-B356-110645D5DD91}.Release|x64.ActiveCfg = Release|x64
+		{CC9641FF-A93D-462E-B356-110645D5DD91}.Release|x64.Build.0 = Release|x64
+		{CC9641FF-A93D-462E-B356-110645D5DD91}.Release|x86.ActiveCfg = Release|Win32
+		{CC9641FF-A93D-462E-B356-110645D5DD91}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
