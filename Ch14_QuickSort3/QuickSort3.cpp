@@ -35,19 +35,26 @@ int Partition(int DataSet[], int Left, int Right)
 	}
 }
 
-void QuickSort(int DataSet[], int Left, int Right)
+int QuickSort(int DataSet[], int Left, int Right)
 {
+	int result = 0;
+
 	if (Left < Right)
 	{
+
+
 		int Index = Partition(DataSet, Left, Right);
 
 		QuickSort(DataSet, Left, Index - 1);
 		QuickSort(DataSet, Index - 1, Right);
 	}
+
+	return result;
 }
 
 int main()
 {
+	int result = 0;
 	int N;
 	cin >> N;
 
@@ -69,6 +76,10 @@ int main()
 
 		ArrayB[i] = b;
 	}
+
+	result = QuickSort(ArrayA, 0, (sizeof(ArrayA)-1));
+
+	cout << result;
 
 	return 0;
 }
