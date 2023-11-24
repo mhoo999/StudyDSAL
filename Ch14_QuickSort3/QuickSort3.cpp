@@ -2,58 +2,76 @@
 
 using namespace std;
 
-int Partition(int DataSet[], int Left, int Right)
+int VerificationArray(int ArrayA[], int ArrayB[], int N)
+{
+	int Count = 0;
+
+	for (int i = 0; i < N; ++i)
+	{
+		// cout << ArrayA[i] << " : ";
+
+		if (ArrayA[i] == ArrayB[i])
+		{
+			++Count;
+		}
+	}
+
+	if (Count == N)
+	{
+		return 1;
+	}
+
+	return 0;
+}
+
+int Partition(int ArrayA[], int ArrayB[], int Left, int Right, int &EqualCount)
 {
 	int First = Left;
-	int Pivot = DataSet[First];
+	int Pivot = ArrayA[Left];
 
 	++Left;
 
-	while (Left <= Right)
+	while (Left < Right)
 	{
-		while (DataSet[Left] <= Pivot && Left < Right)
+		while (ArrayA[Left] <= Pivot && Left < Right)
 		{
 			++Left;
 		}
-		while (DataSet[Right] <= Pivot && Left <= Right)
+
+		while (ArrayA[Right] >= Pivot && Right >= Left)
 		{
 			--Right;
 		}
 
 		if (Left < Right)
 		{
-			swap(DataSet[Left], DataSet[Right]);
+			swap(ArrayA[Left], ArrayA[Right]);
+			EqualCount += VerificationArray(ArrayA, ArrayB, Right+1);
 		}
 		else
 		{
 			break;
 		}
-
-		swap(DataSet[First], DataSet[Right]);
-
-		return Right;
 	}
+
+	swap(ArrayA[First], ArrayA[Right]);
+	return Right;
 }
 
-int QuickSort(int DataSet[], int Left, int Right)
+void QuickSort(int ArrayA[], int ArrayB[], int Left, int Right, int &EqualCount)
 {
-	int result = 0;
-
 	if (Left < Right)
 	{
+		int Index = Partition(ArrayA, ArrayB, Left, Right, EqualCount);
 
-
-		int Index = Partition(DataSet, Left, Right);
-
-		QuickSort(DataSet, Left, Index - 1);
-		QuickSort(DataSet, Index - 1, Right);
+		QuickSort(ArrayA, ArrayB, Left, Index - 1, EqualCount);
+		QuickSort(ArrayA, ArrayB, Index+1, Right, EqualCount);
 	}
-
-	return result;
 }
 
 int main()
 {
+	int EqualCount = 0;
 	int result = 0;
 	int N;
 	cin >> N;
@@ -77,7 +95,16 @@ int main()
 		ArrayB[i] = b;
 	}
 
-	result = QuickSort(ArrayA, 0, (sizeof(ArrayA)-1));
+	EqualCount += VerificationArray(ArrayA, ArrayB, N-1);
+
+
+	QuickSort(ArrayA, ArrayB, 0, N, EqualCount);
+
+
+	if (EqualCount > 0)
+	{
+		result = 1;
+	}
 
 	cout << result;
 
